@@ -111,7 +111,7 @@ class Cart extends Component {
                 <View style={styles.flatStyle}>
                     <Text></Text>                    
                     <Text>  Total: ${this.calculateTotal()}</Text>
-                    <TouchableOpacity style={styles.followButton} onPress={() => this.props.navigation.navigate('Checkout')}>
+                    <TouchableOpacity style={styles.followButton} onPress={() => this.props.navigation.navigate("Checkout")}>
                     <Text style = {styles.followButtonText}>
                     Check Out
                     </Text>
