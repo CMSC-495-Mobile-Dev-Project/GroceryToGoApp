@@ -164,14 +164,6 @@ const LoginNavigator = createStackNavigator(
     {
         Login: {
             screen: LoginForm,
-            navigationOptions: ({ navigation }) => ({
-                headerLeft: <Icon
-                    name='list'
-                    type='font-awesome'
-                    iconStyle={styles.stackIcon}
-                    onPress={() => navigation.toggleDrawer()}
-                />
-            })
         },
         Signup: { screen: SignupForm}
     },

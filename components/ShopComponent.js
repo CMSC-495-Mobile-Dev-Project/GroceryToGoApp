@@ -6,7 +6,6 @@ class Shop extends Component {
     static navigationOptions = {
         title: 'Shop'
     }
-
     render() {
         return (
             <View>

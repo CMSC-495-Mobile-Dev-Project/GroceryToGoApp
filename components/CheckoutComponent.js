@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Alert, StyleSheet, Dimensions, TextInput, Button } from 'react-native';
+import { Text, View, Alert, StyleSheet, Dimensions, TextInput, Button,TouchableHighlight } from 'react-native';
 
 var {height} = Dimensions.get('window');
 var {width} = Dimensions.get('window');
@@ -59,7 +59,9 @@ class Checkout extends Component {
     };
     render() {
       return (
+
         <View style={styles.MainContainer}>
+         <Text style={[styles.baseText]}> Please Enter Your payment Information: </Text>
           <TextInput
             placeholder="Cardholder Name"
             placeholderTextColor="gray"
@@ -105,13 +107,11 @@ class Checkout extends Component {
             underlineColorAndroid="transparent"
             style={styles.TextInput}
           />
-          <View style ={{marginTop: 15}}>
-            <Button              
-              title="Submit"
-              onPress={this.CheckTextInput}
-              color='green'
-            />
-          </View>
+          <View  style={styles.SubmitContainer}>
+           <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => Alert.alert('Thank you for your payment')}>
+           <Text style={styles.buttonText}>Submit</Text>
+        </TouchableHighlight>
+        </View>
         </View>
       );
     }
@@ -119,12 +119,40 @@ class Checkout extends Component {
 }
 
 const styles = StyleSheet.create({
+  baseText: {
+    fontSize: 18,
+    alignItems:"center",
+    justifyContent:"center",
+    fontWeight:"bold"
+  },
+  SubmitContainer:{
+    alignItems:"center",
+  },
+  buttonContainer: {
+    height: 45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 20,
+    width: 200,
+    borderRadius: 30,
+  },
+  loginButton: {
+    backgroundColor: "#249924",
+    alignItems:"center",
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 20,
+    alignItems:"center"
+  },
   MainContainer: {
     flex: 1,
     margin: 35,
+    
   },
+  
   TextInput: {
-    height: 35,
+    height: 45,
     backgroundColor: 'rgb(144,238,144)',
     borderRadius: 25,
     marginTop: 10,
@@ -133,6 +161,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight:10
   },
+
   button:{
     backgroundColor:"#249924",
     borderRadius:25,
@@ -140,7 +169,6 @@ const styles = StyleSheet.create({
     alignItems:"center",
     justifyContent:"center",
     marginTop:10,
-    //marginBottom:10,
     padding: 10,
     marginLeft: 10,
     marginRight: 10

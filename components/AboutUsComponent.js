@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, Platform, ListView, TouchableOpacity, TouchableHighlight } from 'react-native';
 
 class AboutUs extends Component {
-    
+  static navigationOptions = {
+    title: 'About Us'
+}
+
     render() {
       return (
         <View style={styles.container}>
