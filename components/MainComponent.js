@@ -7,6 +7,8 @@ import Coupon from './CouponComponent';
 import Cart from './CartComponent';
 import { Icon } from 'react-native-elements'
 import Help from "./HelpComponent";
+import LoginForm from './pages/LoginForm';
+
 console.disableYellowBox = true;
 
 const CustomDrawerContentComponent = props => (
@@ -29,9 +31,10 @@ const CustomDrawerContentComponent = props => (
 const HomeNavigator = createStackNavigator(
     {
         Home: { screen: Home }
+        
     },
     {
-        initialRouteName: 'Home',
+      
         navigationOptions: ({ navigation }) => ({
             headerStyle: {
                 backgroundColor: '#249924',
@@ -118,7 +121,24 @@ const HelpNavigator = createStackNavigator(
         })
     }
 );
-
+const LoginNavigator = createStackNavigator(
+    {
+        Login: { screen: LoginForm }
+    },
+    {
+        navigationOptions: ({ navigation }) => ({
+            headerStyle: {
+                backgroundColor: '#249924',
+            },
+            headerLeft: <Icon
+                name='bars'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+);
 const MainNavigator = createDrawerNavigator(
     {
         Home: {
@@ -185,10 +205,36 @@ const MainNavigator = createDrawerNavigator(
                     />
                 )
             }
+        },
+        Coupon: {
+            screen: CouponNavigator,
+            navigationOptions: {
+                drawerIcon: () => (
+                    <Icon
+                        name='gift'
+                        type='font-awesome'
+                        size={28}
+                        color='#008000'
+                    />
+                )
+            }
+        },
+        Logout: {
+            screen: LoginNavigator,
+            navigationOptions: {
+                drawerIcon: () => (
+                    <Icon
+                        name='sign-out'
+                        type='font-awesome'
+                        size={28}
+                        color='#008000'
+                    />
+                )
+            }
         }
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'Logout',
         drawerBackgroundColor: '#e1f7d5',
         contentComponent: CustomDrawerContentComponent
     }

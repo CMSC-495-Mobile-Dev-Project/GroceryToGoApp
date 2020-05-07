@@ -9,7 +9,7 @@ class AboutUs extends Component {
           <Image style={styles.icon} source={require('../assets/logosmall.png')} />
           <Text style={styles.title}>About Us </Text>
           <Text style={styles.description}>Team Members: Kaneka Ky, Rachael Harner, Angel Vazquez, Marilyn McDonald</Text>
-          <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.clickListener('Home')}>
+          <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress= {() => this.clickListener('Home')}>
             <Text style={styles.buttonText}>Return to Shopping</Text>
           </TouchableHighlight>
         </View>
