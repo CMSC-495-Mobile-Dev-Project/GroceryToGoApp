@@ -6,7 +6,7 @@ import SignupButton from '../components/SignupButton';
 const SignupForm = () => {
 
     return(
-        <ImageBackground source={require('../assets/background.png')}
+        <ImageBackground source={require('../pages/assets/backgroundlogin.png')}
                             style={styles.container}>
             <Text style={styles.logo}> Grocery To Go</Text>
                 <View style={styles.container}></View>
@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
     },
     logo:{
         fontWeight:"bold",
-        fontFamily: 'sans-serif-light',
         fontSize:40,
         color:"#fff",
         justifyContent: 'center',

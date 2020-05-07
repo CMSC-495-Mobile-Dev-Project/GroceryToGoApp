@@ -8,6 +8,8 @@ import Cart from './CartComponent';
 import { Icon } from 'react-native-elements'
 import Help from "./HelpComponent";
 import LoginForm from './pages/LoginForm';
+import SignupForm from './pages/SignupForm';
+import Checkout from './CheckoutComponent';
 
 console.disableYellowBox = true;
 
@@ -31,10 +33,10 @@ const CustomDrawerContentComponent = props => (
 const HomeNavigator = createStackNavigator(
     {
         Home: { screen: Home }
-        
+
     },
     {
-      
+
         navigationOptions: ({ navigation }) => ({
             headerStyle: {
                 backgroundColor: '#249924',
@@ -86,22 +88,59 @@ const CouponNavigator = createStackNavigator(
 );
 const CartNavigator = createStackNavigator(
     {
-        Cart: { screen: Cart }
+        Cart: {
+            screen: Cart,
+            navigationOptions: ({ navigation }) => ({
+                headerLeft: <Icon
+                    name='list'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
+        Checkout: { screen: Checkout,
+            navigationOptions: ({ navigation }) => ({
+                headerLeft: <Icon
+                    name='list'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        }
     },
     {
-        navigationOptions: ({ navigation }) => ({
+        navigationOptions: {
             headerStyle: {
-                backgroundColor: '#249924',
+                backgroundColor: '#249924'
             },
-            headerLeft: <Icon
-                name='cart-arrow-down'
-                type='font-awesome'
-                iconStyle={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-            />
-        })
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
     }
 );
+
+// const CartNavigator = createStackNavigator(
+//     {
+//         Cart: { screen: Cart }
+//     },
+//     {
+//         navigationOptions: ({ navigation }) => ({
+//             headerStyle: {
+//                 backgroundColor: '#249924',
+//             },
+//             headerLeft: <Icon
+//                 name='cart-arrow-down'
+//                 type='font-awesome'
+//                 iconStyle={styles.stackIcon}
+//                 onPress={() => navigation.toggleDrawer()}
+//             />
+//         })
+//     }
+// );
 const HelpNavigator = createStackNavigator(
     {
         Help: { screen: Help }
@@ -123,22 +162,51 @@ const HelpNavigator = createStackNavigator(
 );
 const LoginNavigator = createStackNavigator(
     {
-        Login: { screen: LoginForm }
+        Login: {
+            screen: LoginForm,
+            navigationOptions: ({ navigation }) => ({
+                headerLeft: <Icon
+                    name='list'
+                    type='font-awesome'
+                    iconStyle={styles.stackIcon}
+                    onPress={() => navigation.toggleDrawer()}
+                />
+            })
+        },
+        Signup: { screen: SignupForm}
     },
     {
-        navigationOptions: ({ navigation }) => ({
+        initialRouteName: 'Login',
+        navigationOptions: {
             headerStyle: {
-                backgroundColor: '#249924',
+                backgroundColor: '#249924'
             },
-            headerLeft: <Icon
-                name='bars'
-                type='font-awesome'
-                iconStyle={styles.stackIcon}
-                onPress={() => navigation.toggleDrawer()}
-            />
-        })
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                color: '#fff'
+            }
+        }
     }
 );
+
+// const SignupNavigator = createStackNavigator(
+//     {
+//         SignUp: { screen: SignupForm }
+//     },
+//     {
+//         navigationOptions: ({ navigation }) => ({
+//             headerStyle: {
+//                 backgroundColor: '#249924',
+//             },
+//             headerLeft: <Icon
+//                 name='bars'
+//                 type='font-awesome'
+//                 iconStyle={styles.stackIcon}
+//                 onPress={() => navigation.toggleDrawer()}
+//             />
+//         })
+//     }
+// );
 const MainNavigator = createDrawerNavigator(
     {
         Home: {
@@ -231,7 +299,7 @@ const MainNavigator = createDrawerNavigator(
                     />
                 )
             }
-        }
+        },
     },
     {
         initialRouteName: 'Logout',
